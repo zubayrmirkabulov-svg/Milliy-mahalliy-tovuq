@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400"><defs>
+<radialGradient id="meat" cx="40%" cy="35%" r="75%"><stop offset="0" stop-color="#fde3d3"/><stop offset=".55" stop-color="#f4b89c"/><stop offset="1" stop-color="#e0937a"/></radialGradient>
+<radialGradient id="skin" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#fff0dc"/><stop offset=".6" stop-color="#f6d3ae"/><stop offset="1" stop-color="#e3b086"/></radialGradient>
+<radialGradient id="fillet" cx="40%" cy="35%" r="75%"><stop offset="0" stop-color="#ffe6dd"/><stop offset=".6" stop-color="#f7c2b2"/><stop offset="1" stop-color="#e9a08d"/></radialGradient>
+<linearGradient id="bone" x1="0" x2="1"><stop offset="0" stop-color="#fffdf6"/><stop offset="1" stop-color="#e6d9bf"/></linearGradient>
+<radialGradient id="liver" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#c2564a"/><stop offset=".6" stop-color="#8f2a2a"/><stop offset="1" stop-color="#5e1a1d"/></radialGradient>
+<radialGradient id="heart" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#d9675a"/><stop offset="1" stop-color="#93302d"/></radialGradient>
+<radialGradient id="giz" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#d98a7a"/><stop offset="1" stop-color="#9c4a40"/></radialGradient>
+<linearGradient id="foot" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7d58a"/><stop offset="1" stop-color="#e5ac4e"/></linearGradient>
+<filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#7a3b22" flood-opacity=".18"/></filter>
+</defs>
+<rect width="400" height="400" fill="#ffffff"/>
+<ellipse cx="200" cy="338" rx="150" ry="14" fill="#000" opacity=".06"/>
+<g filter="url(#sh)"><g transform="translate(145 190) rotate(12)" stroke-linecap="round" fill="none">
+<path d="M0 -130 L0 40" stroke="#d7983c" stroke-width="34"/>
+<path d="M0 -130 L0 40" stroke="url(#foot)" stroke-width="28"/>
+<path d="M0 40 L-62 125 M0 40 L0 145 M0 40 L62 125 M0 30 L-30 -5" stroke="#d7983c" stroke-width="24"/>
+<path d="M0 40 L-62 125 M0 40 L0 145 M0 40 L62 125 M0 30 L-30 -5" stroke="#f0c46e" stroke-width="18"/>
+<path d="M-8 -110 h16 M-8 -85 h16 M-8 -60 h16 M-8 -35 h16 M-8 -10 h16 M-8 15 h16" stroke="#d7983c" stroke-width="2"/>
+<circle cx="-66" cy="131" r="5" fill="#8a6a3a" stroke="none"/><circle cx="0" cy="152" r="5" fill="#8a6a3a" stroke="none"/><circle cx="66" cy="131" r="5" fill="#8a6a3a" stroke="none"/>
+</g><g transform="translate(255 190) rotate(-12)" stroke-linecap="round" fill="none">
+<path d="M0 -130 L0 40" stroke="#d7983c" stroke-width="34"/>
+<path d="M0 -130 L0 40" stroke="url(#foot)" stroke-width="28"/>
+<path d="M0 40 L-62 125 M0 40 L0 145 M0 40 L62 125 M0 30 L-30 -5" stroke="#d7983c" stroke-width="24"/>
+<path d="M0 40 L-62 125 M0 40 L0 145 M0 40 L62 125 M0 30 L-30 -5" stroke="#f0c46e" stroke-width="18"/>
+<path d="M-8 -110 h16 M-8 -85 h16 M-8 -60 h16 M-8 -35 h16 M-8 -10 h16 M-8 15 h16" stroke="#d7983c" stroke-width="2"/>
+<circle cx="-66" cy="131" r="5" fill="#8a6a3a" stroke="none"/><circle cx="0" cy="152" r="5" fill="#8a6a3a" stroke="none"/><circle cx="66" cy="131" r="5" fill="#8a6a3a" stroke="none"/>
+</g></g></svg>
