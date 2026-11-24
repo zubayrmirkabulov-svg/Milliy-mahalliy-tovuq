@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milliy Mahalliy Tovuq — halol tovuq go'shti</title>
+<meta name="description" content="Mahalliy fermadan 100% halol tovuq go'shti: golen, lashka, qanot, file va boshqalar.">
+<link rel="icon" id="favicon" href="/images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a href="#" class="brand"><img id="logo" src="/images/logo.png" alt="logo"><span id="brandName">Milliy Mahalliy Tovuq</span></a>
+    <nav class="nav">
+      <a href="#katalog">Katalog</a>
+      <a href="#afzallik">Nega biz</a>
+      <a href="#aloqa">Aloqa</a>
+    </nav>
+    <button class="cart-btn" id="cartBtn" aria-label="Savat">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+      <span>Savat</span><b id="cartCount">0</b>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="ornament"></div>
+  <div class="wrap hero-in">
+    <div class="hero-text">
+      <span class="halal-pill"><span class="dot"></span>100% HALOL · Mahalliy ferma</span>
+      <h1 id="heroTitle">Milliy Mahalliy Tovuq</h1>
+      <p id="slogan" class="slogan">Mahalliy fermadan — 100% halol tovuq go'shti</p>
+      <div class="hero-actions">
+        <a href="#katalog" class="btn btn-primary">Mahsulotlarni ko'rish</a>
+        <a id="heroPhone" href="#" class="btn btn-ghost">📞 <span></span></a>
+      </div>
+      <p class="delivery" id="deliveryNote"></p>
+    </div>
+    <div class="hero-art">
+      <figure class="cuts"><img src="/images/tovuq-qismlari.svg" alt="Tovuq go'shti qismlari: kalla, bo'yin, to'sh, qanot, lashka, golen, panja, jigar, yurak, oshqozon"></figure>
+      <div class="seal">
+        <svg viewBox="0 0 120 120"><defs><path id="c" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+          <circle cx="60" cy="60" r="58" fill="#0f5132"/><text font-size="11" font-weight="700" fill="#f4c46a" letter-spacing="3"><textPath href="#c">HALOL · HALOL · HALOL · HALOL ·</textPath></text>
+          <text x="60" y="68" text-anchor="middle" font-size="24" fill="#fff" font-family="serif">حلال</text></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="katalog">
+  <div class="section-head">
+    <div>
+      <h2>Katalog</h2>
+      <p class="muted">Narxlar 1 kg uchun. Har kuni yangi so'yilgan go'sht.</p>
+    </div>
+    <input id="search" class="search" type="search" placeholder="Qidirish: golen, qanot…">
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="grid" id="grid"><div class="loading">Yuklanmoqda…</div></div>
+</section>
+
+<section class="why" id="afzallik">
+  <div class="wrap why-grid">
+    <div class="why-card"><div class="ico">☪</div><h3>Faqat halol</h3><p>Barcha tovuqlar shariat qoidalariga muvofiq so'yiladi.</p></div>
+    <div class="why-card"><div class="ico">🌾</div><h3>Mahalliy ferma</h3><p>Tabiiy yem bilan boqilgan, o'zimizning fermer tovuqlari.</p></div>
+    <div class="why-card"><div class="ico">❄</div><h3>Har kuni yangi</h3><p>Muzlatilmagan, sovutilgan holda yetkaziladi.</p></div>
+    <div class="why-card"><div class="ico">🚚</div><h3>Tez yetkazish</h3><p>Buyurtmangiz eshigingizgacha olib boriladi.</p></div>
+  </div>
+</section>
+
+<footer class="footer" id="aloqa">
+  <div class="wrap footer-in">
+    <div>
+      <div class="brand light"><img id="logo2" src="/images/logo.png" alt=""><span id="brandName2">Milliy Mahalliy Tovuq</span></div>
+      <p class="muted-light" id="slogan2"></p>
+      <img src="/images/logo-full.png" alt="Milliy Mahalliy Tovuq logotipi" class="logo-full">
+    </div>
+    <div><h4>Aloqa</h4><p id="fPhone"></p><p id="fTg"></p></div>
+    <div><h4>Manzil</h4><p id="fAddress"></p><p id="fHours"></p></div>
+  </div>
+  <div class="wrap copy">© <span id="year"></span> <span id="brandName3"></span>. Barcha huquqlar himoyalangan.</div>
+</footer>
+
+<!-- Savat -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head"><h3>Savat</h3><button class="x" id="closeCart" aria-label="Yopish">✕</button></div>
+  <div class="drawer-body" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="total"><span>Jami:</span><b id="cartTotal">0 so'm</b></div>
+    <form id="orderForm" class="order-form">
+      <input name="name" placeholder="Ismingiz" required maxlength="60">
+      <input name="phone" placeholder="Telefon: +998 __ ___ __ __" required maxlength="30" inputmode="tel">
+      <input name="address" placeholder="Manzil" maxlength="200">
+      <textarea name="note" placeholder="Izoh (ixtiyoriy)" rows="2" maxlength="300"></textarea>
+      <button class="btn btn-primary full" type="submit">Buyurtma berish</button>
+    </form>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+<script src="/app.js"></script>
+</body>
+</html>

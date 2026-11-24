@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin panel</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+
+<!-- Kirish -->
+<section id="loginView" class="login">
+  <form id="loginForm" class="login-card">
+    <img src="/images/logo.png" alt="" class="login-logo" id="loginLogo">
+    <h1>Admin panel</h1>
+    <p class="muted">Davom etish uchun parolni kiriting</p>
+    <input type="password" name="password" placeholder="Parol" required autofocus>
+    <button class="btn primary full">Kirish</button>
+    <p class="hint">Standart parol: <code>admin123</code> — kirgandan so'ng albatta o'zgartiring.</p>
+  </form>
+</section>
+
+<!-- Asosiy panel -->
+<div id="appView" class="app" hidden>
+  <aside class="side">
+    <div class="side-brand"><img id="sideLogo" src="/images/logo.png" alt=""><span id="sideName">Milliy Mahalliy Tovuq</span></div>
+    <nav>
+      <button class="tab active" data-tab="products">🍗 Mahsulotlar</button>
+      <button class="tab" data-tab="orders">🧾 Buyurtmalar <b id="newOrders" class="pill" hidden></b></button>
+      <button class="tab" data-tab="settings">🎨 Brend va sozlamalar</button>
+      <button class="tab" data-tab="security">🔒 Parol</button>
+    </nav>
+    <div class="side-foot">
+      <a href="/" target="_blank" class="btn ghost full">Saytni ochish ↗</a>
+      <button id="logoutBtn" class="btn ghost full">Chiqish</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <!-- Mahsulotlar -->
+    <section data-panel="products">
+      <header class="ph">
+        <div><h2>Mahsulotlar</h2><p class="muted" id="prodStats"></p></div>
+        <div class="ph-actions">
+          <input id="pSearch" class="input" type="search" placeholder="Qidirish…">
+          <button class="btn primary" id="addProduct">+ Yangi mahsulot</button>
+        </div>
+      </header>
+      <div class="plist" id="plist"></div>
+    </section>
+
+    <!-- Buyurtmalar -->
+    <section data-panel="orders" hidden>
+      <header class="ph"><div><h2>Buyurtmalar</h2><p class="muted" id="orderStats"></p></div>
+        <select id="oFilter" class="input"><option value="">Barchasi</option><option>yangi</option><option>qabul qilindi</option><option>yetkazilmoqda</option><option>yetkazildi</option><option>bekor qilindi</option></select>
+      </header>
+      <div id="olist"></div>
+    </section>
+
+    <!-- Sozlamalar -->
+    <section data-panel="settings" hidden>
+      <header class="ph"><div><h2>Brend va sozlamalar</h2><p class="muted">Sayt nomi, logo va aloqa ma'lumotlari</p></div></header>
+      <form id="settingsForm" class="panel-card grid2">
+        <div class="logo-edit">
+          <label>Logo</label>
+          <div class="logo-box"><img id="logoPreview" src="/images/logo.png" alt=""></div>
+          <label class="btn ghost file-btn">Logo yuklash<input type="file" id="logoFile" accept="image/png,image/jpeg,image/webp,image/gif" hidden></label>
+          <button type="button" class="btn link" id="logoReset">Standart logoga qaytarish</button>
+          <input type="hidden" name="logo">
+        </div>
+        <div class="fields">
+          <label>Brend nomi<input class="input" name="brandName" required maxlength="60"></label>
+          <label>Shior (slogan)<input class="input" name="slogan" maxlength="200"></label>
+          <label>Telefon<input class="input" name="phone" maxlength="40"></label>
+          <label>Telegram (masalan @milliytovuq)<input class="input" name="telegram" maxlength="60"></label>
+          <label>Manzil<input class="input" name="address" maxlength="200"></label>
+          <label>Ish vaqti<input class="input" name="workHours" maxlength="100"></label>
+          <label>Yetkazib berish haqida<input class="input" name="deliveryNote" maxlength="200"></label>
+          <label>Kategoriyalar (har birini vergul bilan ajrating)<input class="input" name="categories" maxlength="600"></label>
+          <button class="btn primary">Saqlash</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Parol -->
+    <section data-panel="security" hidden>
+      <header class="ph"><div><h2>Parolni o'zgartirish</h2></div></header>
+      <form id="pwForm" class="panel-card narrow">
+        <label>Joriy parol<input class="input" type="password" name="current" required></label>
+        <label>Yangi parol (kamida 6 belgi)<input class="input" type="password" name="next" minlength="6" required></label>
+        <button class="btn primary">O'zgartirish</button>
+      </form>
+    </section>
+  </main>
+</div>
+
+<!-- Mahsulot tahrirlash oynasi -->
+<dialog id="pDialog">
+  <form id="pForm" method="dialog" class="dlg">
+    <header class="dlg-head"><h3 id="pTitle">Mahsulot</h3><button type="button" class="x" data-close>✕</button></header>
+    <div class="dlg-body">
+      <div class="img-edit">
+        <div class="img-box"><img id="pImg" src="/images/butun.svg" alt=""></div>
+        <label class="btn ghost file-btn full">📷 Rasm yuklash<input type="file" id="pFile" accept="image/png,image/jpeg,image/webp,image/gif" hidden></label>
+        <p class="hint">Maslahat: oq fonli, kvadrat rasm eng chiroyli ko'rinadi.</p>
+        <details><summary>Tayyor rasmlardan tanlash</summary><div class="stock" id="stockImgs"></div></details>
+        <input type="hidden" name="image">
+      </div>
+      <div class="fields">
+        <label>Nomi<input class="input" name="name" required maxlength="80" placeholder="Masalan: Golen"></label>
+        <div class="row2">
+          <label>Narxi (so'm)<input class="input" name="price" type="number" min="0" step="500" required></label>
+          <label>O'lchov<select class="input" name="unit"><option value="kg">kg</option><option value="dona">dona</option></select></label>
+        </div>
+        <label>Kategoriya<select class="input" name="category" id="pCat"></select></label>
+        <label>Yorliq (ixtiyoriy)<input class="input" name="badge" maxlength="20" placeholder="Ommabop, Chegirma…"></label>
+        <label>Tavsif<textarea class="input" name="description" rows="3" maxlength="400"></textarea></label>
+        <div class="toggles">
+          <label class="switch"><input type="checkbox" name="inStock"><span></span> Sotuvda bor</label>
+          <label class="switch"><input type="checkbox" name="visible"><span></span> Saytda ko'rinadi</label>
+        </div>
+      </div>
+    </div>
+    <footer class="dlg-foot">
+      <button type="button" class="btn danger" id="pDelete">O'chirish</button>
+      <span class="sp"></span>
+      <button type="button" class="btn ghost" data-close>Bekor qilish</button>
+      <button type="submit" class="btn primary" value="save">Saqlash</button>
+    </footer>
+  </form>
+</dialog>
+
+<div class="toast" id="toast"></div>
+<script src="/admin.js"></script>
+</body>
+</html>
